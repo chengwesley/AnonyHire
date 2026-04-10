@@ -1,0 +1,2 @@
+pymupdf
+pdfminer.six

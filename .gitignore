@@ -1,0 +1,26 @@
+# 個資保護：vault 含真實姓名/電話對照，嚴禁上傳
+masked/
+
+# 原始履歷（含個資）
+real/
+
+# 稽核報告（可能含個資片段）
+reports/
+
+# 測試資料
+test_data/
+scratch/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Claude Code 本機設定（含本機路徑）
+.claude/
