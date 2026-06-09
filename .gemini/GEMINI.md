@@ -4,13 +4,18 @@
 AI 驅動的招募隱私與公平性防護工具。透過物理脫敏與多層級倫理稽核，確保 AI 招募符合 EU AI Act，排除演算法偏見。
 
 ## 技術棧
-- Python（scripts/、rules/）\n- Claude API\n- 無前端框架
+- Python（scripts/、rules/）
+- Claude API
+- 無前端框架
 
 ## 開發慣例
-- 脫敏邏輯修改前需有測試案例\n- masked/ 資料夾內容只讀，不提交到 git\n- rules/ 的規則異動需在 HANDOFF 說明原因
+- 脫敏邏輯修改前需有測試案例
+- masked/ 資料夾內容只讀，不提交到 git
+- rules/ 的規則異動需在 HANDOFF 說明原因
 
 ## 不要手動修改的檔案（自動產生）
-- masked/（執行期產生）\n- reports/（執行期產生）
+- masked/（執行期產生）
+- reports/（執行期產生）
 
 ## Handoff 協議
 - **Session 開始**：先 `git pull`，再讀 `AI_HANDOFF.md` 了解目前進度與誰在負責哪個檔案
