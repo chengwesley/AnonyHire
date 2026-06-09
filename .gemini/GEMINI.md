@@ -1,17 +1,26 @@
 # Gemini — AnonyHire
 
 ## 專案說明
-AI 驅動的招募隱私與公平性防護系統。透過物理脫敏與多層級倫理稽核，確保 AI 招募符合 EU AI Act 等法規，排除演算法偏見。
+AI 驅動的招募隱私與公平性防護工具。透過物理脫敏與多層級倫理稽核，確保 AI 招募符合 EU AI Act，排除演算法偏見。
 
-## Gemini 的職責範圍
-- 履歷文件的多模態解析（PDF、圖片）
-- 法規文件研究與合規性分析
-- 偏見案例的資料集建立
+## 技術棧
+- Python（scripts/、rules/）\n- Claude API\n- 無前端框架
 
-## 禁區（不要動）
-- Claude 負責的脫敏核心邏輯（scripts/）
-- rules/ 資料夾（由 Claude 維護）
+## 開發慣例
+- 脫敏邏輯修改前需有測試案例\n- masked/ 資料夾內容只讀，不提交到 git\n- rules/ 的規則異動需在 HANDOFF 說明原因
 
-## 重要規則
-- Session 開始先讀 `AI_HANDOFF.md`
-- Session 結束前更新 `AI_HANDOFF.md` 並 push
+## 不要手動修改的檔案（自動產生）
+- masked/（執行期產生）\n- reports/（執行期產生）
+
+## Handoff 協議
+- **Session 開始**：先 `git pull`，再讀 `AI_HANDOFF.md` 了解目前進度與誰在負責哪個檔案
+- **Session 進行中**：若要動某個檔案，先確認 AI_HANDOFF.md 裡沒有 🔒 標記
+- **Session 結束**：在 `AI_HANDOFF.md` 最上方新增記錄，移除自己的 🔒，commit & push
+
+### AI_HANDOFF.md 記錄格式
+```
+## YYYY-MM-DD | Gemini | 家裡／公司
+- 完成：（做了什麼）
+- 下次：（下個 session 要繼續的）
+- 🔒 進行中：（還沒 push 完的檔案，請另一個 AI 暫勿修改）
+```
