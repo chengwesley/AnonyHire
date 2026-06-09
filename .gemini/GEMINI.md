@@ -1,13 +1,16 @@
 # Gemini — AnonyHire
 
 ## 專案說明
-（請在此填寫這個專案的用途與目標）
+AI 驅動的招募隱私與公平性防護系統。透過物理脫敏與多層級倫理稽核，確保 AI 招募符合 EU AI Act 等法規，排除演算法偏見。
 
 ## Gemini 的職責範圍
-- （填寫 Gemini 負責的部分）
+- 履歷文件的多模態解析（PDF、圖片）
+- 法規文件研究與合規性分析
+- 偏見案例的資料集建立
 
 ## 禁區（不要動）
-- （填寫 Claude 或其他 AI 負責、Gemini 不應修改的部分）
+- Claude 負責的脫敏核心邏輯（scripts/）
+- rules/ 資料夾（由 Claude 維護）
 
 ## 重要規則
 - Session 開始先讀 `AI_HANDOFF.md`
