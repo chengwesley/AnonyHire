@@ -27,7 +27,7 @@ flowchart TD
     end
 
     BL --> PDF_OUT[audit_ready.pdf<br/>物理黑條 PDF]
-    BL --> VAULT[vault_id.json<br/>Token 對照表 &#40;本機限定&#41;]
+    BL --> VAULT["vault_id.json<br/>Token 對照表 (本機限定)"]
 
     PDF_OUT -->|"⚠ 必須開新對話"| ANALYSIS
 
