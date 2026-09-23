@@ -246,6 +246,14 @@ class PIIMasker:
         # 出生年月日
         text = re.sub(r'(?:出生|生日)[：:\s]*\d{2,4}[/\-年]\d{1,2}[/\-月]\d{1,2}日?', '[BIRTHDATE_REDACTED]', text)
 
+        # Email：通用格式偵測，不依賴呼叫端是否傳入正確的 email 參數
+        # （--pdf 模式下呼叫端傳入的 email 常為空字串，若只靠上方 `if email:` 區塊會漏遮）
+        text = re.sub(
+            r'[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}',
+            lambda m: self._token('EMAIL', m.group()),
+            text
+        )
+
         # 2. Rule-based Regex
         for pattern in self.rules['regex']:
             def _replace_regex(m):
@@ -413,7 +421,7 @@ def _process_single_pdf(pdf_path: Path, skill_dir: Path, masker: 'PIIMasker',
     if HAS_PYMUPDF:
         try:
             test_doc = fitz.open(str(pdf_path))
-            if test_doc.needs_password:
+            if getattr(test_doc, 'needs_pass', getattr(test_doc, 'needs_password', False)):
                  test_doc.close()
                  raise PermissionError(f"PDF is encrypted/password-protected: {pdf_path.name}")
             test_doc.close()
