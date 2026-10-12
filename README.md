@@ -120,27 +120,18 @@ AnonyHire 的設計核心參照了國內外多項招募與 AI 監管標準：
 
 ## 安裝與設定 (Installation)
 
-### 1. 安裝為 Claude Code Skill
-將本專案連結至您的 Claude Code 環境，即可在對話中直接啟動隱私閘門：
-
+### 1. 複製到 Claude Code 的 skills 資料夾
 ```bash
-# 1. 複製本專案
-git clone https://github.com/chengwesley/AnonyHire.git
-cd AnonyHire
+git clone https://github.com/chengwesley/AnonyHire.git ~/.claude/skills/ethical-resume-screen
 ```
+
+Claude Code 會自動載入 `~/.claude/skills/` 底下的 skill。安裝後，只要對話中出現履歷、候選人或篩選等情境，隱私閘門就會自動啟動。
 
 ### 2. 安裝 Python 依賴
 本專案依賴 `PyMuPDF` (及備援 `pdfminer.six`) 進行 PDF 文字提取與物理遮蔽。請在您的 Python 環境中執行：
 
 ```bash
-pip install -r requirements.txt
-```
-
-### 3. 註冊 Skill (在 Claude Code 中執行)
-請確保您位於專案根目錄，然後執行：
-
-```bash
-claude skill add .
+pip install -r ~/.claude/skills/ethical-resume-screen/requirements.txt
 ```
 
 ---
